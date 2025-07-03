@@ -3,6 +3,8 @@
 import { useEffect, useState, ChangeEvent } from "react";
 import type { Advocate } from "@/types/Advocates";
 
+const getDisplayName = (advocate: Advocate) => `${advocate.lastName}, ${advocate.firstName}`;
+
 export default function AdvocatesSearch() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
@@ -10,8 +12,7 @@ export default function AdvocatesSearch() {
   const advocateFilter = (advocate: Advocate) => {
     const loweredSearchTerm = searchTerm.toLowerCase();
     return (
-      advocate.firstName.toLowerCase().includes(loweredSearchTerm) ||
-      advocate.lastName.toLowerCase().includes(loweredSearchTerm) ||
+      getDisplayName(advocate).toLowerCase().includes(loweredSearchTerm) ||
       advocate.city.toLowerCase().includes(loweredSearchTerm) ||
       advocate.degree.toLowerCase().includes(loweredSearchTerm) ||
       advocate.specialties.some(elem => elem.toLowerCase().includes(loweredSearchTerm)) ||
@@ -50,8 +51,7 @@ export default function AdvocatesSearch() {
       <table>
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>City</th>
             <th>Degree</th>
             <th>Specialties</th>
@@ -63,8 +63,7 @@ export default function AdvocatesSearch() {
           {advocates.filter(advocateFilter).map((advocate) => {
             return (
               <tr key={advocate.id}>
-                <td>{advocate.firstName}</td>
-                <td>{advocate.lastName}</td>
+                <td>{getDisplayName(advocate)}</td>
                 <td>{advocate.city}</td>
                 <td>{advocate.degree}</td>
                 <td>

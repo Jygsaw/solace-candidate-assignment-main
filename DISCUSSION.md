@@ -14,3 +14,4 @@
 [X] refactor search term state management
 [X] remove redundant filteredAdvocates state
 [X] refactor advocate filter to case insensitive
+[X] render merged name fields
