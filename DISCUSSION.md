@@ -1,4 +1,4 @@
 ===== TODO =====
-[ ] fix <th> child of <thead>
-[ ] investigate hydration error
+[X] fix <th> child of <thead>
+[X] investigate hydration error
 [ ] add key prop to list children
