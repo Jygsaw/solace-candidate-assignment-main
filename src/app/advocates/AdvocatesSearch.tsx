@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import type { Advocate } from "@/types/Advocates";
 
 export default function AdvocatesSearch() {
+  const [searchTerm, setSearchTerm] = useState<string>('');
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
   const [filteredAdvocates, setFilteredAdvocates] = useState<Advocate[]>([]);
 
@@ -16,10 +17,9 @@ export default function AdvocatesSearch() {
     });
   }, []);
 
-  const onChange = (e) => {
+  const onSearchChange = (e) => {
     const searchTerm = e.target.value;
-
-    document.getElementById("search-term").innerHTML = searchTerm;
+    setSearchTerm(searchTerm);
 
     const filteredAdvocates = advocates.filter((advocate) => {
       return (
@@ -36,9 +36,7 @@ export default function AdvocatesSearch() {
     setFilteredAdvocates(filteredAdvocates);
   };
 
-  const onClick = () => {
-    setFilteredAdvocates(advocates);
-  };
+  const onSearchReset = () => setSearchTerm('');
 
   return (
     <main style={{ margin: "24px" }}>
@@ -48,10 +46,10 @@ export default function AdvocatesSearch() {
       <div>
         <p>Search</p>
         <p>
-          Searching for: <span id="search-term"></span>
+          Searching for: <span id="search-term">{searchTerm}</span>
         </p>
-        <input style={{ border: "1px solid black" }} onChange={onChange} />
-        <button onClick={onClick}>Reset Search</button>
+        <input style={{ border: "1px solid black" }} onChange={onSearchChange} value={searchTerm} />
+        <button onClick={onSearchReset}>Reset Search</button>
       </div>
       <br />
       <br />
