@@ -8,14 +8,15 @@ export default function AdvocatesSearch() {
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
 
   const advocateFilter = (advocate: Advocate) => {
+    const loweredSearchTerm = searchTerm.toLowerCase();
     return (
-      advocate.firstName.includes(searchTerm) ||
-      advocate.lastName.includes(searchTerm) ||
-      advocate.city.includes(searchTerm) ||
-      advocate.degree.includes(searchTerm) ||
-      advocate.specialties.includes(searchTerm) ||
-      advocate.yearsOfExperience.toString().includes(searchTerm) ||
-      advocate.phoneNumber.toString().includes(searchTerm)
+      advocate.firstName.toLowerCase().includes(loweredSearchTerm) ||
+      advocate.lastName.toLowerCase().includes(loweredSearchTerm) ||
+      advocate.city.toLowerCase().includes(loweredSearchTerm) ||
+      advocate.degree.toLowerCase().includes(loweredSearchTerm) ||
+      advocate.specialties.some(elem => elem.toLowerCase().includes(loweredSearchTerm)) ||
+      advocate.yearsOfExperience.toString().includes(loweredSearchTerm) ||
+      advocate.phoneNumber.toString().includes(loweredSearchTerm)
     );
   };
 
