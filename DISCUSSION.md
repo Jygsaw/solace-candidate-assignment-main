@@ -9,6 +9,6 @@
 [X] create AdvocatesSearch
 [X] refactor advocates page as server component
 [X] add page metadata to advocates page
-[ ] create types for advocate data
+[X] create types for advocate data
 [ ] fix search filter error
 [ ] refactor search term state management

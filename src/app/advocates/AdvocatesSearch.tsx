@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import type { Advocate } from "@/types/Advocates";
 
 export default function AdvocatesSearch() {
-  const [advocates, setAdvocates] = useState([]);
-  const [filteredAdvocates, setFilteredAdvocates] = useState([]);
+  const [advocates, setAdvocates] = useState<Advocate[]>([]);
+  const [filteredAdvocates, setFilteredAdvocates] = useState<Advocate[]>([]);
 
   useEffect(() => {
     fetch("/api/advocates").then((response) => {
