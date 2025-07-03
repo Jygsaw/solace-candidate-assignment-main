@@ -15,3 +15,4 @@
 [X] remove redundant filteredAdvocates state
 [X] refactor advocate filter to case insensitive
 [X] render merged name fields
+[X] update global layout
