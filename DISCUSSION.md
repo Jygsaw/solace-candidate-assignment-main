@@ -12,3 +12,4 @@
 [X] create types for advocate data
 [X] fix search filter error
 [ ] refactor search term state management
+[ ] remove redundant filteredAdvocates state
