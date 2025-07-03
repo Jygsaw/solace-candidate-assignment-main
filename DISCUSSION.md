@@ -4,7 +4,7 @@
 [X] add key prop to list children
 [X] move advocates page to /advocates route
 [X] redirect home page to /advocates route
-[ ] remove leftover debugging statements
+[X] remove leftover debugging statements
 [ ] remove page metadata from global layout
 [ ] add page metadata to advocates page
 [ ] refactor search term input
