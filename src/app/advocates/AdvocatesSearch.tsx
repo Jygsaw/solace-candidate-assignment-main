@@ -1,40 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import type { Advocate } from "@/types/Advocates";
 
 export default function AdvocatesSearch() {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
-  const [filteredAdvocates, setFilteredAdvocates] = useState<Advocate[]>([]);
+
+  const advocateFilter = (advocate: Advocate) => {
+    return (
+      advocate.firstName.includes(searchTerm) ||
+      advocate.lastName.includes(searchTerm) ||
+      advocate.city.includes(searchTerm) ||
+      advocate.degree.includes(searchTerm) ||
+      advocate.specialties.includes(searchTerm) ||
+      advocate.yearsOfExperience.toString().includes(searchTerm) ||
+      advocate.phoneNumber.toString().includes(searchTerm)
+    );
+  };
 
   useEffect(() => {
     fetch("/api/advocates").then((response) => {
       response.json().then((jsonResponse) => {
         setAdvocates(jsonResponse.data);
-        setFilteredAdvocates(jsonResponse.data);
       });
     });
   }, []);
 
-  const onSearchChange = (e) => {
-    const searchTerm = e.target.value;
-    setSearchTerm(searchTerm);
-
-    const filteredAdvocates = advocates.filter((advocate) => {
-      return (
-        advocate.firstName.includes(searchTerm) ||
-        advocate.lastName.includes(searchTerm) ||
-        advocate.city.includes(searchTerm) ||
-        advocate.degree.includes(searchTerm) ||
-        advocate.specialties.includes(searchTerm) ||
-        advocate.yearsOfExperience.toString().includes(searchTerm) ||
-        advocate.phoneNumber.toString().includes(searchTerm)
-      );
-    });
-
-    setFilteredAdvocates(filteredAdvocates);
-  };
+  const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value);
 
   const onSearchReset = () => setSearchTerm('');
 
@@ -66,7 +59,7 @@ export default function AdvocatesSearch() {
           </tr>
         </thead>
         <tbody>
-          {filteredAdvocates.map((advocate) => {
+          {advocates.filter(advocateFilter).map((advocate) => {
             return (
               <tr key={advocate.id}>
                 <td>{advocate.firstName}</td>
