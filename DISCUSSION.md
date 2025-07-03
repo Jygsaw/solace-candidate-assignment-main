@@ -7,7 +7,7 @@
 [X] remove leftover debugging statements
 [X] remove page metadata from global layout
 [X] create AdvocatesSearch
-[ ] refactor advocates page as server component
+[X] refactor advocates page as server component
 [ ] add page metadata to advocates page
 [ ] refactor search term input
 [ ] fix search filter "includes" error
