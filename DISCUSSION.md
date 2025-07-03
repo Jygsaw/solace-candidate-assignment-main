@@ -5,7 +5,7 @@
 [X] move advocates page to /advocates route
 [X] redirect home page to /advocates route
 [X] remove leftover debugging statements
-[ ] remove page metadata from global layout
+[X] remove page metadata from global layout
 [ ] create AdvocatesSearch
 [ ] refactor advocates page as server component
 [ ] add page metadata to advocates page
