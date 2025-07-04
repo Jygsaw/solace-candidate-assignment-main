@@ -79,7 +79,7 @@ export default function AdvocatesSearch() {
       </section>
       <section className="search-results-container">
         {advocates.filter(advocateFilter).sort(advocateSort).map((advocate) => (
-          <div className="search-item">
+          <div key={`advocate-card-${advocate.id}`} className="search-item">
             <div className="card-wrapper">
               <AdvocateCard advocate={advocate} />
             </div>

@@ -21,7 +21,7 @@
 [X] refactor table as advocate profile cards
 [X] add viewport meta tag to global layout
 [X] update advocate list with responsive styles
-[ ] refine advocate profile card
+[X] refine advocate profile card
 [ ] implement backend search capability
 [ ] integrate frontend with backend seach
 [ ] implement lazy loading

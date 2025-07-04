@@ -42,4 +42,29 @@
   background-color: #e9f0ee;
   border: 1px solid #d4e2dd;
   border-radius: 8px;
+  padding: 12px;
+  display: flex;
+
+  .profile {
+    width: 200px;
+
+    .headshot {
+      background-color: #aaa;
+      width: 200px;
+      height: 200px;
+      justify-self: center;
+    }
+
+    .details {
+      margin-top: 12px;
+    }
+  }
+
+  .specialties {
+    flex-grow: 1;
+
+    .title {
+      text-align: center;
+    }
+  }
 }
