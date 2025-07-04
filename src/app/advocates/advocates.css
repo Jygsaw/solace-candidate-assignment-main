@@ -1,0 +1,22 @@
+.advocates-search {
+  margin: 24px;
+}
+
+.page-title {
+  text-align: center;
+}
+
+.search-form-container {
+  max-width: 800px;
+  margin: 24px auto;
+  display: flex;
+  gap: 8px;
+
+  input {
+    flex-grow: 1;
+  }
+}
+
+.search-results-container {
+  margin: 24px auto;
+}

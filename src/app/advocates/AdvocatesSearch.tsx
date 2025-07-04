@@ -2,6 +2,7 @@
 
 import { useEffect, useState, ChangeEvent } from "react";
 import type { Advocate } from "@/types/Advocates";
+import "./advocates.css";
 
 const getDisplayName = (advocate: Advocate) => `${advocate.lastName}, ${advocate.firstName}`;
 
@@ -34,50 +35,45 @@ export default function AdvocatesSearch() {
   const onSearchReset = () => setSearchTerm('');
 
   return (
-    <main style={{ margin: "24px" }}>
-      <h1>Solace Advocates</h1>
-      <br />
-      <br />
-      <div>
-        <p>Search</p>
-        <p>
-          Searching for: <span id="search-term">{searchTerm}</span>
-        </p>
+    <main className="advocates-search">
+      <h1 className="page-title">Solace Advocates</h1>
+      <section className="search-form-container">
+        Quick filter:
         <input style={{ border: "1px solid black" }} onChange={onSearchChange} value={searchTerm} />
-        <button onClick={onSearchReset}>Reset Search</button>
-      </div>
-      <br />
-      <br />
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Degree</th>
-            <th>Specialties</th>
-            <th>Years of Experience</th>
-            <th>Phone Number</th>
-          </tr>
-        </thead>
-        <tbody>
-          {advocates.filter(advocateFilter).map((advocate) => {
-            return (
-              <tr key={advocate.id}>
-                <td>{getDisplayName(advocate)}</td>
-                <td>{advocate.city}</td>
-                <td>{advocate.degree}</td>
-                <td>
-                  {advocate.specialties.map((s) => (
-                    <div key={s}>{s}</div>
-                  ))}
-                </td>
-                <td>{advocate.yearsOfExperience}</td>
-                <td>{advocate.phoneNumber}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+        <button onClick={onSearchReset}>Reset</button>
+      </section>
+      <section className="search-results-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>City</th>
+              <th>Degree</th>
+              <th>Specialties</th>
+              <th>Years of Experience</th>
+              <th>Phone Number</th>
+            </tr>
+          </thead>
+          <tbody>
+            {advocates.filter(advocateFilter).map((advocate) => {
+              return (
+                <tr key={advocate.id}>
+                  <td>{getDisplayName(advocate)}</td>
+                  <td>{advocate.city}</td>
+                  <td>{advocate.degree}</td>
+                  <td>
+                    {advocate.specialties.map((s) => (
+                      <div key={s}>{s}</div>
+                    ))}
+                  </td>
+                  <td>{advocate.yearsOfExperience}</td>
+                  <td>{advocate.phoneNumber}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </section>
     </main>
   );
 }
