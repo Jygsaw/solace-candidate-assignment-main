@@ -19,6 +19,7 @@
 [X] update page layout
 [X] implement sort order dropdown
 [X] refactor table as advocate profile cards
+[X] add viewport meta tag to global layout
 [ ] refactor advocate list with responsive layout
 [ ] refine advocate profile card
 [ ] implement backend search capability
