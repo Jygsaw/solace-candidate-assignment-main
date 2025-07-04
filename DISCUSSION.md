@@ -17,7 +17,7 @@
 [X] render merged name fields
 [X] update global layout
 [X] update page layout
-[ ] implement sort order
+[X] implement sort order dropdown
 [ ] refactor table as advocate profile cards
 [ ] implement pagination
 [ ] implement backend search capability
