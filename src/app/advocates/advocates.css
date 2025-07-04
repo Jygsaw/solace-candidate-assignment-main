@@ -1,0 +1,70 @@
+.advocates-search {
+  margin: 24px;
+}
+
+.page-title {
+  color: #285e50;
+  text-align: center;
+}
+
+.search-form-container {
+  max-width: 800px;
+  margin: 24px auto;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+
+  input {
+    flex-grow: 1;
+  }
+}
+
+.search-results-container {
+  margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  flex-flow: row wrap;
+
+  .search-item {
+    flex: 0 0 50%;
+
+    @media (max-width: 800px) {
+      flex: 0 0 100%;
+    }
+
+    .card-wrapper {
+      margin: 8px;
+    }
+  }
+}
+
+.advocate-card {
+  background-color: #e9f0ee;
+  border: 1px solid #d4e2dd;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+
+  .profile {
+    width: 200px;
+
+    .headshot {
+      background-color: #aaa;
+      width: 200px;
+      height: 200px;
+      justify-self: center;
+    }
+
+    .details {
+      margin-top: 12px;
+    }
+  }
+
+  .specialties {
+    flex-grow: 1;
+
+    .title {
+      text-align: center;
+    }
+  }
+}

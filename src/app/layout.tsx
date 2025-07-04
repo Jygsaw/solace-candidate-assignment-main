@@ -1,13 +1,7 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Solace Candidate Assignment",
-  description: "Show us what you got",
-};
 
 export default function RootLayout({
   children,
@@ -16,7 +10,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+      </head>
+      <body className={`${inter.className} body-layout`}>{children}</body>
     </html>
   );
 }
