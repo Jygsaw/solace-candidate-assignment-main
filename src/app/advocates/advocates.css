@@ -3,6 +3,7 @@
 }
 
 .page-title {
+  color: #285e50;
   text-align: center;
 }
 
@@ -19,4 +20,21 @@
 
 .search-results-container {
   margin: 24px auto;
+  display: flex;
+  flex-direction: column;
+  flex-flow: row wrap;
+
+  .search-item {
+    flex: 0 0 50%;
+
+    .card-wrapper {
+      margin: 8px;
+    }
+  }
+}
+
+.advocate-card {
+  background-color: #e9f0ee;
+  border: 1px solid #d4e2dd;
+  border-radius: 8px;
 }

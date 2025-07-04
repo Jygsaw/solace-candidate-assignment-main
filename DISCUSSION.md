@@ -18,9 +18,9 @@
 [X] update global layout
 [X] update page layout
 [X] implement sort order dropdown
-[ ] refactor table as advocate profile cards
+[X] refactor table as advocate profile cards
 [ ] refactor advocate list with responsive layout
+[ ] refine advocate profile card
 [ ] implement backend search capability
 [ ] integrate frontend with backend seach
 [ ] implement lazy loading
-

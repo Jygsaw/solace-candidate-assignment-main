@@ -2,6 +2,8 @@
 
 import { useEffect, useState, ChangeEvent } from "react";
 import type { Advocate } from "@/types/Advocates";
+import AdvocateCard from "./AdvocateCard";
+import { getDisplayName } from "./utils";
 import "./advocates.css";
 
 type SortOrder = typeof SortOrders[keyof typeof SortOrders];
@@ -11,8 +13,6 @@ const SortOrders = {
   expAsc: 'expAsc',
   expDesc: 'expDesc',
 } as const;
-
-const getDisplayName = (advocate: Advocate) => `${advocate.lastName}, ${advocate.firstName}`;
 
 export default function AdvocatesSearch() {
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -78,36 +78,13 @@ export default function AdvocatesSearch() {
         </select>
       </section>
       <section className="search-results-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>City</th>
-              <th>Degree</th>
-              <th>Specialties</th>
-              <th>Years of Experience</th>
-              <th>Phone Number</th>
-            </tr>
-          </thead>
-          <tbody>
-            {advocates.filter(advocateFilter).sort(advocateSort).map((advocate) => {
-              return (
-                <tr key={advocate.id}>
-                  <td>{getDisplayName(advocate)}</td>
-                  <td>{advocate.city}</td>
-                  <td>{advocate.degree}</td>
-                  <td>
-                    {advocate.specialties.map((s) => (
-                      <div key={s}>{s}</div>
-                    ))}
-                  </td>
-                  <td>{advocate.yearsOfExperience}</td>
-                  <td>{advocate.phoneNumber}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {advocates.filter(advocateFilter).sort(advocateSort).map((advocate) => (
+          <div className="search-item">
+            <div className="card-wrapper">
+              <AdvocateCard advocate={advocate} />
+            </div>
+          </div>
+        ))}
       </section>
     </main>
   );
